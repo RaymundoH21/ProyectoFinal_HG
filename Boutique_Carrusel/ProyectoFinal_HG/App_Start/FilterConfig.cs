@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Boutique_Carrusel
+namespace ProyectoFinal_HG
 {
     public class FilterConfig
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Boutique_Carrusel.Controllers
+namespace ProyectoFinal_HG.Controllers
 {
     public class HomeController : Controller
     {
