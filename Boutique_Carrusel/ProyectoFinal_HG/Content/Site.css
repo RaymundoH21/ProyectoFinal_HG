@@ -8,3 +8,6 @@
 .size{
     background-size:cover;
 }
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
