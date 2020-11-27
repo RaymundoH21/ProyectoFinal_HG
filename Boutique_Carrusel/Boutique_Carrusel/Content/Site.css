@@ -2,3 +2,9 @@
     margin: 0;
     padding: 0;
 }
+.bg-primario {
+    background-color: #511f4b;
+}
+.size{
+    background-size:cover;
+}
