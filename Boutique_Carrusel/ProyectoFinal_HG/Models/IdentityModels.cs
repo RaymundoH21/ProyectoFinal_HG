@@ -29,5 +29,8 @@ namespace ProyectoFinal_HG.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Ropa> Ropas { get; set; }
     }
 }
