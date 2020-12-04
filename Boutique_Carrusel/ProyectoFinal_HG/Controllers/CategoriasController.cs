@@ -28,7 +28,7 @@ namespace ProyectoFinal_HG.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
+            Categoria categoria = db.Categorias.Include(a => a.Ropas).Where(a=>a.Id==id).SingleOrDefault();
             if (categoria == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace ProyectoFinal_HG.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre")] Categoria categoria)
+        public ActionResult Create( Categoria categoria)
         {
             if (ModelState.IsValid)
             {
