@@ -16,6 +16,12 @@ namespace ProyectoFinal_HG.Models
             // Agregar aquí notificaciones personalizadas de usuario
             return userIdentity;
         }
+        public string Name { get; set; }
+        public string Descripcion { get; set; }
+        public string Hobbies { get; set; }
+        public string Ropa { get; set; }
+        public string Videos { get; set; }
+        public string Photo { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

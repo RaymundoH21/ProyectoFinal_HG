@@ -1,3 +1,4 @@
+using ProyectoFinal_HG.Clase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,15 @@ namespace ProyectoFinal_HG
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            this.CheckRoles();
+            Utility.CheckSuperUser();
+        }
+
+        private void CheckRoles()
+        {
+            Utility.CheckRoles("Administrador");
+            Utility.CheckRoles("Nadie");
+            Utility.CheckRoles("UsuarioX");
         }
     }
 }

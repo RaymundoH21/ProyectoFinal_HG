@@ -1,0 +1,78 @@
+﻿@model ProyectoFinal_HG.Models.ApplicationUser
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<div class="row justify-content-center mt-3">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header bg-primario">
+                <h4 class="m-0 text-center text-white">Perfil @User.Identity.Name</h4>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-between">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="https://pixabay.com/get/54e3d54a4f53a514f6d1867dda3536781538dae05a51734b_1920.jpg" alt="Picture" class="rounded img-fluid"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header py-2 bg-primario">
+                                <b class="text-center m-0 text-white">Informacion Principal</b> <button class="btn btn-sm btn-outline-light float-right">Editar</button>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm">
+                                    <tr>
+                                        <td>Nombre:</td>
+                                        <td>@Model.Name</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Correo:</td>
+                                        <td>@Model.Email</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Usuario:</td>
+                                        <td>@Model.UserName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Telefono:</td>
+                                        <td>@Model.PhoneNumber</td>
+                                    </tr>
+                                    <hr />
+                                </table>
+                                <hr />
+                                <table class="table table-sm table-borderless">
+                                    <tr>
+                                        <td>Descripcion:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Model.Descripcion</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ropa Favorita:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Model.Ropa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hobbies:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Model.Hobbies</td>
+                                    <tr>
+                                        <td>Pasarelas Favoritas:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Model.Videos</td>
+                                    </tr>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

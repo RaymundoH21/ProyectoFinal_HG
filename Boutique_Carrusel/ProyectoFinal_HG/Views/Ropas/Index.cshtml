@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<ProyectoFinal_HG.Models.Ropa>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ropa";
 }
 <h2>Catalogo</h2>
 <p class="mt-4 mb-4">
-    <a href="@Url.Action("Create","Ropas")" class="btn btn-sm bg-primario text-white"><i class="fas fa-plus-square"></i> Anadir nuevo articulo</a>
+    @if (User.IsInRole("Administrador"))
+    {
+        <a href="@Url.Action("Create", "Ropas")" class="btn btn-sm bg-primario text-white"><i class="fas fa-plus-square"></i> Anadir nuevo articulo</a>
+    }
 </p>
 <div class="row justify-content-lg-start">
     <div class="col-md-6">

@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<ProyectoFinal_HG.Models.Categoria>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categorias";
 }
 
 <h2 class="mt-4">Categorias</h2>
 
 <p class="mt-4 mb-4">
+    @if (User.IsInRole("Administrador"))
+    {
     <a href="#" data-toggle="modal" data-target="#AddModal" class="btn btn-sm bg-primario text-white"><i class="fas fa-plus-square"></i> Nueva categoria</a>
+    }
 </p>
 <div class="row justify-content-lg-start">
     <div class="col-md-6">
