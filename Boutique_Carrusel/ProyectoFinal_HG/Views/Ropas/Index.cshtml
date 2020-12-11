@@ -4,14 +4,14 @@
     ViewBag.Title = "Ropa";
 }
 <h2>Catalogo</h2>
-<p class="mt-4 mb-4">
+<p class="mt-5 mb-4">
     @if (User.IsInRole("Administrador"))
     {
         <a href="@Url.Action("Create", "Ropas")" class="btn btn-sm bg-primario text-white"><i class="fas fa-plus-square"></i> Anadir nuevo articulo</a>
     }
 </p>
-<div class="row justify-content-lg-start">
-    <div class="col-md-6">
+<div class="row">
+    <div class="col-md-6 justify-content-start mt-3">
         <div class="card">
             <div class="card-header text-white bg-primario py-1">
                 <h3>Lista de Articulos en el catalogo</h3>

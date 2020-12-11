@@ -1,7 +1,7 @@
 ﻿@model ProyectoFinal_HG.Models.Ropa
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear articulo";
 }
 
 <h2>Crear nuevo articulo</h2>
@@ -11,11 +11,11 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Ropa</h4>
+    <div class="form-horizontal mt-5">
+        <h4 class="bg-primario text-white pb-2">Ropa</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group colortext">
             @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group colortext">
             @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
@@ -41,15 +41,17 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-secondary bg-primario" />
+                <input type="submit" value="Crear articulo" class="btn btn-secondary bg-primario" />
+                <!--<a href=Url.Action(Back to List, Index) class="btn btn-secondary bg-primario text-white">Regresar a la lista</a>-->
+                <div class="btn btn-secondary bg-primario text-white">
+                    @Html.ActionLink("Regresar a la lista", "Index")
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

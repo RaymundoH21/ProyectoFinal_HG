@@ -1,14 +1,13 @@
 ﻿@model ProyectoFinal_HG.Models.Ropa
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar articulo";
 }
-
-<h2>Delete</h2>
+<hr />
+<h2 class="mt-lg-5">Eliminar</h2>
 
 <h3>Estas seguro de que quieres borrar este articulo?</h3>
 <div>
-    <h4>Ropa</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,9 +39,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-secondary bg-primario" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div class="form-actions no-color">
+    <input type="submit" value="Eliminar" class="btn btn-secondary bg-primario" />
+    <a href="@Url.Action("Index", "Ropas", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario">regresar a la lista</a>
+</div>
     }
 </div>
