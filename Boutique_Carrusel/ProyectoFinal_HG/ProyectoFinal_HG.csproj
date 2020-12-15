@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202012081922400_MakeProfile.Designer.cs">
       <DependentUpon>202012081922400_MakeProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012151815579_UpdateCorreccion.cs" />
+    <Compile Include="Migrations\202012151815579_UpdateCorreccion.Designer.cs">
+      <DependentUpon>202012151815579_UpdateCorreccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -398,6 +402,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\App_LocalResources\" />
+    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -423,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012081922400_MakeProfile.resx">
       <DependentUpon>202012081922400_MakeProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012151815579_UpdateCorreccion.resx">
+      <DependentUpon>202012151815579_UpdateCorreccion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

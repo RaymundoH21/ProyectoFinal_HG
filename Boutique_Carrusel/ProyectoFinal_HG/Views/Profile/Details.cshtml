@@ -3,7 +3,7 @@
     ViewBag.Title = "Perfil";
 }
 
-<div class="row justify-content-center mt-3">
+<div class="row justify-content-center mt-3 py-5">
     <div class="col-md-10">
         <div class="card">
             <div class="card-header bg-primario">
@@ -13,13 +13,19 @@
                 <div class="row justify-content-between">
                     <div class="col-md-6">
                         <div class="card">
-                            <img src="https://pixabay.com/get/54e3d54a4f53a514f6d1867dda3536781538dae05a51734b_1920.jpg" alt="Picture" class="rounded img-fluid"/>
+                            <img src="~/Upload/@Model.Photo" alt="Picture" class="rounded img-fluid" />
+                            <form class="form-horizontal" action="@Url.Action("Picture","Profile")" method="post" enctype="multipart/form-data">
+                                <input type="file" value="" name="pic" class="form-control">
+                                <input type="submit" value="Guardar Foto" class="form-control"/>
+                            </form>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header py-2 bg-primario">
-                                <b class="text-center m-0 text-white">Informacion Principal</b> <button class="btn btn-sm btn-outline-light float-right">Editar</button>
+                                <b class="text-center m-0 text-white">Informacion Principal</b>
+                                <button class="btn btn-sm btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Editar</button>
+
                             </div>
                             <div class="card-body">
                                 <table class="table table-borderless table-sm">
@@ -73,6 +79,51 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar Informacion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="@Url.Action("Details","Profile")" method="post">
+                <div class="modal-body">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" value="" name="Name" placeholder="Nombre Completo" class="form-control">
+                        </div>
+                        <div class="form-group">
+            <input name="PhoneNumber" type="text" class="form-control" placeholder="Telefono">
+        </div>
+        <div class="form-group">
+            <input name="Descripcion" type="text" class="form-control" placeholder="Descripcion">
+        </div>
+        <div class="form-group">
+            <input name="" type="text" class="form-control" placeholder="Ropa Favorita">
+        </div>
+        <div class="form-group">
+            <input name="Hobbies" type="text" class="form-control" placeholder="Hobbies">
+        </div>
+                        
+                    </div>
+                            
+                </div>
+                            
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
         </div>
     </div>
 </div>
