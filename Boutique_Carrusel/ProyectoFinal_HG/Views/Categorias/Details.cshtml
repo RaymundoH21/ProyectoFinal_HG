@@ -7,7 +7,7 @@
 <hr />
 <h2 class="mt-4">Categoria detallada</h2>
 
-<div>
+<div class="mb-5">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -20,7 +20,7 @@
     </dl>
 </div>
 <div class="col-md-12">
-    <table class="table table-striped table-responsive-xl table-bordered">
+    <table class="table table-striped table-responsive-xl table-bordered table-dark text-white">
         <tr>
             <th>Categoria</th>
             <th>Descripcion de la prenda</th>
@@ -48,3 +48,4 @@
     <a href="@Url.Action("Edit", "Categorias", new { id = Model.Id })" title="Editar" class="btn btn-secondary bg-primario">Editar</a>
     <a href="@Url.Action("Index", "Categorias", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario">regresar a la lista</a>
 </p>
+<div class="mb-5"></div>
