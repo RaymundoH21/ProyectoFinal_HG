@@ -38,5 +38,6 @@ namespace ProyectoFinal_HG.Models
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Ropa> Ropas { get; set; }
+        public DbSet<Disenador> Modista { get; set; }
     }
 }
