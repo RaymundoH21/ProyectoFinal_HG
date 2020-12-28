@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -11,134 +10,112 @@ using ProyectoFinal_HG.Models;
 
 namespace ProyectoFinal_HG.Controllers
 {
-    public class RopasController : Controller
+    public class DisenadorController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Ropas
-        [Authorize]
+        // GET: Disenador
         public ActionResult Index()
         {
-            var ropas = db.Ropas.Include(r => r.Modista);
-            return View(ropas.ToList());
+            var modista = db.Modista.Include(d => d.Categoria);
+            return View(modista.ToList());
         }
 
-        // GET: Ropas/Details/5
+        // GET: Disenador/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ropa ropa = db.Ropas.Include(a => a.Modista.Categoria).
-                Include(a => a.Modista).Where(a => a.Id == id)
-                .FirstOrDefault();
-            if (ropa == null)
+            Disenador disenador = db.Modista.Find(id);
+            if (disenador == null)
             {
                 return HttpNotFound();
             }
-            return View(ropa);
+            return View(disenador);
         }
-        [Authorize]
-        // GET: Ropas/Create
+
+        // GET: Disenador/Create
         public ActionResult Create()
         {
-            ViewBag.User = db.Modista.ToList();
-            ViewBag.Categoria = db.Categorias.ToList();
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "Id", "Nombre");
             return View();
         }
 
-        // POST: Ropas/Create
+        // POST: Disenador/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
-        public ActionResult Create(Ropa ropa, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "Id,Name,CategoriaId,Phone,Email,Contact")] Disenador disenador)
         {
             if (ModelState.IsValid)
             {
-                string path = Server.MapPath("~/Upload/Ropa/");
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-
-                if (file != null)
-                {
-                    
-                    file.SaveAs(path + file.FileName);
-                    ropa.Picture = file.FileName;
-                }
-
-                db.Ropas.Add(ropa);
+                db.Modista.Add(disenador);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.User = db.Users.ToList();
-            ViewBag.Categorias = db.Categorias.ToList();
-            return View(ropa);
+
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "Id", "Nombre", disenador.CategoriaId);
+            return View(disenador);
         }
 
-        // GET: Ropas/Edit/5
-        [Authorize]
+        // GET: Disenador/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ropa ropa = db.Ropas.Find(id);
-            if (ropa == null)
+            Disenador disenador = db.Modista.Find(id);
+            if (disenador == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "Id", "Nombre", ropa.Modista);
-            return View(ropa);
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "Id", "Nombre", disenador.CategoriaId);
+            return View(disenador);
         }
 
-        // POST: Ropas/Edit/5
+        // POST: Disenador/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,Descripcion,Precio,CategoriaId")] Ropa ropa)
+        public ActionResult Edit([Bind(Include = "Id,Name,CategoriaId,Phone,Email,Contact")] Disenador disenador)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ropa).State = EntityState.Modified;
+                db.Entry(disenador).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoriaId = new SelectList(db.Categorias, "Id", "Nombre", ropa.DisenadorId);
-            return View(ropa);
+            ViewBag.CategoriaId = new SelectList(db.Categorias, "Id", "Nombre", disenador.CategoriaId);
+            return View(disenador);
         }
 
-        // GET: Ropas/Delete/5
-        [Authorize]
+        // GET: Disenador/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ropa ropa = db.Ropas.Find(id);
-            if (ropa == null)
+            Disenador disenador = db.Modista.Find(id);
+            if (disenador == null)
             {
                 return HttpNotFound();
             }
-            return View(ropa);
+            return View(disenador);
         }
 
-        // POST: Ropas/Delete/5
+        // POST: Disenador/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ropa ropa = db.Ropas.Find(id);
-            db.Ropas.Remove(ropa);
+            Disenador disenador = db.Modista.Find(id);
+            db.Modista.Remove(disenador);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
