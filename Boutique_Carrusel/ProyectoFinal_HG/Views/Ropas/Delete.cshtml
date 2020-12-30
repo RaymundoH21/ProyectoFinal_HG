@@ -4,6 +4,7 @@
     ViewBag.Title = "Eliminar articulo";
 }
 <hr />
+<hr />
 <h2 class="mt-lg-5">Eliminar</h2>
 
 <h3>Estas seguro de que quieres borrar este articulo?</h3>
@@ -39,9 +40,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
+<div class="form-actions no-color mt-4">
     <input type="submit" value="Eliminar" class="btn btn-secondary bg-primario" />
-    <a href="@Url.Action("Index", "Ropas", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario">regresar a la lista</a>
+    <a href="@Url.Action("Index", "Ropas", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario">Regresar a la lista</a>
 </div>
     }
 </div>

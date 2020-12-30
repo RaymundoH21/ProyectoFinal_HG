@@ -44,10 +44,10 @@ else
                                         <i class="fas fa-tags text-primario mb2"></i>
                                         <h4 class="text-uppercase m-0">@item.Modista.Name</h4>
                                         <hr class="my-4" />
-                                        <div class="small text-black-50 ml">@item.Descripcion, @item.Precio</div>
+                                        <div class="text-black-50 ml">@item.Descripcion: @item.Precio</div>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="@Url.Action("Details","Ropas", new {id= item.Id})" class="btn btn-sm btn-info">Mas...</a>
+                                        <a href="@Url.Action("Details","Ropas", new {id= item.Id})" class="btn btn-secondary btn-info">Ver mas...</a>
                                     </div>
                                 </div>
                             </div>

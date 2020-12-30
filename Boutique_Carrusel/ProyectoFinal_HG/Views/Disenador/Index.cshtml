@@ -3,43 +3,58 @@
 @{
     ViewBag.Title = "Index";
 }
+<hr />
+<hr />
+<hr />
+<h2>Disenadores</h2>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="mt-5 mb-4">
+    @if (User.IsInRole("Administrador"))
+    {
+        <a href="@Url.Action("Create", "Disenador")" class="btn btn-sm bg-primario text-white"><i class="fas fa-plus-square"></i> Anadir nuevo disenador</a>
+    }
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<div class="row justify-content-start">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header bg-primario py-2">
+                <h5 class="m-0 text-center text-white">Lista de disenadores</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-responsive-xl table-bordered " id="MyEvents">
+                    <thead class="bg-primario text-white">
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Categoria.Nombre</td>
+                                <td>@item.Name</td>
+                                <td>@item.Phone</td>
+                                <td>
+                                    <a href="@Url.Action("Edit","Disenador",new { id=item.Id})" class="btn btn-sm btn-circle btn-warning">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <a href="@Url.Action("Details","Disenador",new { id=item.Id})" class="btn btn-sm btn-circle btn-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="@Url.Action("Delete","Disenador",new { id=item.Id})" class="btn btn-sm btn-circle btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
 
-</table>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

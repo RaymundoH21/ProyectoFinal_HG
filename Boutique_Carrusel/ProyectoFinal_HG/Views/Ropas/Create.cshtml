@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "Crear articulo";
 }
-
+<hr />
+<hr />
+<hr />
+<div class="mt-5"></div>
 <h2>Crear nuevo articulo</h2>
 
 <form class="" action="@Url.Action("Create","Ropas")" method="post" enctype="multipart/form-data">
@@ -13,7 +16,7 @@
         <h4 class="bg-primario text-white pb-2">Ropa</h4>
         <hr />
         <label class="col-md-10">Modista</label>
-        <div class="col-md-12">
+        <div class="col-md-10">
             <select class="form-control" name="DisenadorId" required>
                 <option value="">Elige el Diseñador</option>
                 @foreach (var item in ViewBag.User)
@@ -50,7 +53,7 @@
 
         <div class="form-group">
             <label class="col-md-10">Categoria</label>
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <select class="form-control" name="CategoriaId" required>
                     <option value="">Elige una Categoria</option>
                     @foreach (var item in ViewBag.Categoria)
@@ -60,7 +63,7 @@
                 </select>
 
                 <div class="form-group py-2">
-                    <label class="col-md-6">Picture</label>
+                    <label class="col-md-6  ">Imagen del atuendo</label>
                     <div class="col-md-12">
                         <input name="file" type="file" value="" class="form-control form-control-file" />
                     </div>

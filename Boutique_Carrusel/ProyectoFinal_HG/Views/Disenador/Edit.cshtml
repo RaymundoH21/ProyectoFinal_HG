@@ -4,13 +4,15 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<hr />
+<hr />
+<h2 class="mt-lg-5 mb-5">Editar</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Disenador</h4>
         <hr />
@@ -58,16 +60,14 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10 mt-3">
+                <input type="submit" value="Guardar cambios" class="btn btn-secondary bg-primario" />
+                <a href="@Url.Action("Index","Disenador", new { id =Model.Id})" title="Regresar" class="btn btn-secondary bg-primario">Regresar a la lista</a>
+
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
