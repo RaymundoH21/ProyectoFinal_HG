@@ -23,3 +23,13 @@
     background-image: url(https://www.muralswallpaper.co.uk/app/uploads/Dusky-Pink-Striped-Wallpaper-Mural-Plain.jpg);
     height:100%;
 }
+.fondo{
+    position:absolute;
+    right: 0;
+    left:0;
+    bottom:0;
+}
+.ImagenLogin{
+    width:40%;
+    height:600px;
+}

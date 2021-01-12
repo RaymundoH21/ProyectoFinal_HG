@@ -43,12 +43,13 @@
                 <div class="row justify-content-center">
                     @if (User.IsInRole("Administrador"))
                     {
+                        <a href="@Url.Action("Index", "Ropas", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario ml-2">Regresar a la lista</a>
                         <a href="@Url.Action("Edit", "Ropas", new { id = Model.Id })" title="Editar" class="btn btn-secondary bg-primario">Editar</a>
-                        <a href="@Url.Action("Index", "Ropas", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario ml-2">regresar a la lista</a>
                     }
                     else
                     {
-                        <a href="@Url.Action("Index", "Home", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario">regresar a la lista</a>
+                        <a href="@Url.Action("AgregarCarrito", "Carrito", new { id = Model.Id })" title="Editar" class="btn btn-secondary bg-primario">Añadir al carrito</a>
+                        <a href="@Url.Action("Index", "Home", new { id = Model.Id})" title="Regresar a la lista" class="btn btn-secondary bg-primario">Regresar a la lista</a>
                     }
                 </div>
             </div>

@@ -39,5 +39,8 @@ namespace ProyectoFinal_HG.Models
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Ropa> Ropas { get; set; }
         public DbSet<Disenador> Modista { get; set; }
+        public object Venta { get; internal set; }
+
+        public System.Data.Entity.DbSet<ProyectoFinal_HG.Models.Formulario> Formularios { get; set; }
     }
 }

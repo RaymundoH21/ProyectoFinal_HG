@@ -7,7 +7,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li class="nav-item">
-            <a href="@Url.Action("Details","Profile")" class="nav-link" title="Perfil">Bienvenido @User.Identity.GetUserName()</a>
+            <a href="@Url.Action("Details","Profile")" class="nav-link" title="Perfil">Mi cuenta</a>
             @*@Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
         </li>
         <li class="nav-item"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link">Cerrar sesión</a></li>

@@ -10,7 +10,6 @@ namespace ProyectoFinal_HG.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ProyectoFinal_HG.Models.ApplicationDbContext";
         }
 
         protected override void Seed(ProyectoFinal_HG.Models.ApplicationDbContext context)

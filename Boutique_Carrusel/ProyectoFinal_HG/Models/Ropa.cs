@@ -18,7 +18,7 @@ namespace ProyectoFinal_HG.Models
         [Display(Name ="Descripcion")]
         public string Descripcion { get; set; }
         [Display(Name ="Precio")]
-        public string Precio { get; set; }
+        public float Precio { get; set; }
         public string Picture { get; set; }
         
     }
