@@ -14,13 +14,15 @@ namespace ProyectoFinal_HG.Models
         {
 
         }
-        public CarritoItem(Ropa producto, int cantidad)
+        public CarritoItem(Ropa producto, int cantidad, string user)
         {
             this.Producto = producto;
             this.Cantidad = cantidad;
+            this.Usuario = user;
         }
 
         public Ropa Producto { get => _producto; set => _producto = value; }
         public int Cantidad { get => _cantidad; set => _cantidad = value; }
+        public string Usuario { get; set; }
     }
 }

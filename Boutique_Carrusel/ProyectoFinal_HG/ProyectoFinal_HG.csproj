@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202101092234169_Formula_c.Designer.cs">
       <DependentUpon>202101092234169_Formula_c.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101130021376_Carrito.cs" />
+    <Compile Include="Migrations\202101130021376_Carrito.Designer.cs">
+      <DependentUpon>202101130021376_Carrito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CarritoItem.cs" />
@@ -426,7 +430,7 @@
     <Content Include="Views\Carrito\AgregarCarrito.cshtml" />
     <Content Include="Views\Carrito\FinalizarCompra.cshtml" />
     <Content Include="Views\Carrito\Recibo.cshtml" />
-    <Content Include="Views\Formulario\FormularioCorreo.cshtml" />
+    <Content Include="Views\Formulario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -457,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101092234169_Formula_c.resx">
       <DependentUpon>202101092234169_Formula_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101130021376_Carrito.resx">
+      <DependentUpon>202101130021376_Carrito.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
