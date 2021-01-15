@@ -1,72 +1,150 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>@ViewBag.Title - Boutique Carrusel</title>
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     @Scripts.Render("~/bundles/modernizr")
-    
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <link href="~/Content/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Content/sb-admin-2.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css">
 
 </head>
-<body class="bg-pagina">
-    <nav class="navbar navbar-expand-lg navbar bg-primario navbar-dark fixed-top">
-        @Html.ActionLink("Boutique Carrusel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <body id="Page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    @Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("Acerca de", "About", "Home", null, new { @class = "nav-link" })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("Contacto", "Contact", "Home", null, new { @class = "nav-link" })
-                </li>
+            <!-- Sidebar -->
+            <ul class="navbar-nav sidebar sidebar-dark accordion bg-primario navbar-dark alto" id="accordionSidebar">
 
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index", "Home")">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Boutique carrousel</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                       aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-pen-square"></i>
+                        <span>Menu</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="@Url.Action("Contact","Home")">Contacto </a>
+                            <a class="collapse-item" href="@Url.Action("About","Home")">Acerca de nosotros</a>
+                        </div>
+                    </div>
+                </li>
                 @if (User.IsInRole("Administrador"))
                 {
-                    <li class="nav-item"><a href="@Url.Action("Index", "Categorias")" class="nav-link">Categorias</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Index", "Ropas")" class="nav-link">Ropa</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Index", "Disenador")" class="nav-link">Diseñadores</a></li>
-                    <li class="nav-item"><a href="@Url.Action("Index", "Roles")" class="nav-link">Roles</a></li>
+
+                    <!-- Nav Item - Utilities Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                           aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Articulos</span>
+                        </a>
+                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                             data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="@Url.Action("Index", "Categorias")">Categorias</a>
+                            <a class="collapse-item" href="@Url.Action("Index","Ropas")">Atuendos</a>
+                            <a class="collapse-item" href="@Url.Action("Index","Disenador") ">Diseñadores</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                           aria-expanded="true" aria-controls="collapsePages">
+                            <i class="fas fa-fw fa-address-card"></i>
+                            <span>Roles</span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" href="@Url.Action("Index","Roles")">Roles</a>
+                            </div>
+                        </div>
+                    </li>
                 }
             </ul>
-            @Html.Partial("_LoginPartial")
+
+            <!-- End of Sidebar -->
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-primario topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            @Html.Partial("_LoginPartial")
+
+                        </ul>
+                    </nav>
+                    <!-- End of Topbar -->
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        @RenderBody()
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+            </div>
+            <!-- End of Content Wrapper -->
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        <footer class="bg-dark fondo">
+            <div class="text-center text-white">
+                &copy; @DateTime.Now.Year - Boutique Carrusel
+            </div>
+        </footer>
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="~/Scripts/jquery.easing.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="~/Scripts/sb-admin-2.min.js"></script>
 
-    </div>
-    <footer class="bg-dark mt-xl-5 fondo">
-        <div class="text-center text-white">
-            &copy; @DateTime.Now.Year - Boutique Carrusel
-        </div>
-    </footer>
-    <!-- Bootstrap core JavaScript-->
-    <script src="~/Scripts/jquery.min.js"></script>
-    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="~/Scripts/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="~/Scripts/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    @RenderSection("scripts", required: false)
-</body>
+        <!-- Bootstrap core JavaScript-->
+        <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

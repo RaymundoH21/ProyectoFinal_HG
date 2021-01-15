@@ -3,8 +3,7 @@
 @{
     ViewBag.Title = "Detalles de las categorias";
 }
-<hr />
-<hr />
+
 <h2 class="mt-4">Categoria detallada</h2>
 
 <div class="mb-5">
@@ -23,8 +22,10 @@
     <table class="table table-striped table-responsive-xl table-bordered table-dark text-white">
         <tr>
             <th>Categoria</th>
-            <th>Descripcion de la prenda</th>
+            <th>Disenador</th>
+            <th>Descripcion</th>
             <th>Precio</th>
+            <th>Existencias</th>
             <th>Acciones</th>
         </tr>
         <tbody>
@@ -32,8 +33,10 @@
             {
             <tr>
                 <td>@Model.Nombre</td>
+                <td>@item.Modista</td>
                 <td>@item.Descripcion</td>
                 <td>@item.Precio</td>
+                <td>@item.Existencias</td>
                 <td>
                     <a href="@Url.Action("Edit", "Categorias", new { id = Model.Id })" title="Editar" class="btn btn-secondary"><i class="fas fa-edit text-white">Editar</i></a>
                     <a href="@Url.Action("Details", "Categorias", new { id = Model.Id })" title="Detalles " class="btn btn-secondary"><i class="fas fa-info-circle text-white">Detalles</i></a>
