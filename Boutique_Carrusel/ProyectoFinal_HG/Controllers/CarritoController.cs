@@ -78,7 +78,7 @@ namespace ProyectoFinal_HG.Controllers
             };
 
             Enviar(F);
-            ViewBag.Message = ("Se ha enviado un correo a tu direccion de email, para la confirmacion de su compra");
+            ViewBag.Message = ("Se ha enviado un correo, para la confirmacion de su compra");
             return View();
         }
 
